@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    My Profile
+{% endblock %}
+
+{% block page_head %}
+   My Profile
+{% endblock %}
+
+{% block page_content %}
+    <main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Image section -->
+                <div class="image-preview">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/340px-Default_pfp.svg.png" alt="User Image" class="profile-image img-fluid">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <section class="col-md-12">
+                    <!-- User info section displayed to the right of the image -->
+                    <h2>User Information</h2>
+                    <ul>
+                        <li><strong>Name:</strong> {{ member.name }}</li>
+                        <li><strong>MemberID:</strong> {{ member.mem_id }}</li>
+                        <li><strong>Graduation Date:</strong> {{ member.grad_date }}</li>
+                        <li><strong>Join Date:</strong> {{ member.join_date }}</li>
+                        <li><strong>Active Member Status:</strong> {{ member.mem_status }}</li>
+                        <li><strong>User Category:</strong> {{ member.mem_category }}</li>
+                    </ul>
+                </section>
+                <section class="col-md-4">
+                    <!-- Contact info displayed below user information -->
+                    <h2>Contact Info</h2>
+                    <ul>
+                        <li><strong>Phone:</strong> {{ member.mem_phone }}</li>
+                        <li><strong>Email:</strong> {{ member.email }}</li>
+                        <li><strong>LinkedIn:</strong> <a href="{{ member.mem_linkedin }}">{{ member.mem_linkedin }}</a></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="col-md-4">
+                <!-- Links to other pages for easy access -->
+                <h2> Quick Links</h2>
+                <div class="links">
+                    <div><a href="/userdirectory" class="custom-button">Search for a Profile</a></div>
+                    <br>
+                    <div><a href="/upcomingevents" class="custom-button">View Upcoming Events</a></div>
+                    <br>
+                    <div><a href="/pitches" class="custom-button">View Pitches</a></div>
+                    <br>
+                    <div><a href="/requestpitch" class="custom-button">Request a Pitch</a></div>
+                    <br>
+                    <div><a href="/requestabsence" class="custom-button">Request a Meeting Absence</a></div>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-12">
+                <a href="/editprofile" class="custom-button">Edit Profile</a>
+            </div>
+    </div>
+    </main>
+{% endblock %}

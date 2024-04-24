@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block page_title %}Home{% endblock %}
+
+{% block page_content %}
+    <!-- Left side of screen -->
+    <div class="split left">
+        <div class="text">
+            {% block h2 %}
+                <h2>UNIVERSITY OF MARYLAND <br> COLLEGE PARK <br></h2>
+            {% endblock %}
+            {% block h1 %}
+                <!-- heading -->
+                <home-h1>Smith <br> Investment <br> Fund <br></home-h1>
+            {% endblock %}
+                <!-- paragraph content -->
+                <home-p>Established in 2018, SIF strives to bridge the <br>
+                financial services industry with students <br>
+                through real-world investing.</home-p>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-6">
+                <!-- Add contact button link here -->
+                <a href="/contactus" class="btn btn0primary home-contact-button">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right side of screen -->
+    <div class="split right">
+        <!--Robert H. Smith logo-->
+        <img class="smith_logo" src="https://dbknews.s3.amazonaws.com/uploads/2022/03/031422_3.16.22.smith_.school.program.removed_TM12.jpg" alt="Smith Logo">
+    </div>
+{% endblock %}

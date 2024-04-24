@@ -1,0 +1,247 @@
+h1 {
+    font-weight: bold;
+    font-size: 40px;
+    font-family: helvetica, sans-serif;
+    color: #BF9746
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 20px;
+    color: #863241;
+    font-family: helvetica, sans-serif;
+}
+
+h2.special {
+    font-size: 25px;
+    color: #863241;
+    padding: 15px;
+}
+
+
+p {
+    color: black;
+    font-size: 20px;
+    padding: 15px;
+    font-family: helvetica, sans-serif;
+}
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+
+.split {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 50%;
+}
+
+.left {
+    left: 0;
+    padding: 75px;
+    margin-top: 50px
+}
+
+.right {
+    right: 0;
+    margin-top:50px;
+}
+
+.logo{
+    height: 50px;
+    width: auto;
+    margin-left: 10px ;
+}
+
+.background{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+/*
+CSS for button
+ */
+.custom-button {
+    background-color: #863241;
+    color: #DBE5E3;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 6px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.links{
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+*input {
+    margin-left: 10%;
+}
+
+/* Styling for input and select elements */
+input[list],
+input[type="file"],
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+select {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid;
+    border-radius: 30px;
+    border-color: #B78628;
+}
+/*Creating a border for text*/
+.section {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+
+}
+.content {
+    flex: 1;
+    min-width: 500px;
+}
+.about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.about-title {
+    text-align: center;
+    color: #BF9746;
+}
+
+.about-head {
+    text-align: center;
+    color: #BF9746;
+    font-size: 35px;
+}
+#about-par {
+    color: #691c1c;
+}
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-member {
+    margin: 50px;
+    text-align: center;
+}
+
+.about-profile-image {
+    width: 250px; /* Set the width of the image as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make the image round */
+}
+
+/*Styling for add event page*/
+.tophalf {
+    height: 600px;
+}
+
+.under {
+    text-align: center;
+}
+.buttonnew {
+    background-color: #691c1c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 40px;
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 300px;
+}
+
+.offset {
+    margin-left: 300px;
+    margin-top: 100px;
+}
+
+/*styling for event rsvp page*/
+
+.event {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 150px;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+}
+
+.eventheader {
+    color: #691c1c;
+}
+
+h3.special {
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+}
+
+.home-split {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 50%;
+}
+
+.home-left {
+    left: 0;
+    padding: 50px;
+    margin-top: 50px
+}
+
+.home-right {
+    right: 0;
+    margin-top:50px;
+}
+
+.smith_logo {
+    height: 830px;
+    width: 730px;
+    float: right;
+}
+.home-contact-button {
+    padding: 10px 40px;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: white;
+    color: #863241;
+    border-color: #BF9746;
+    border-width: 4px;
+    margin-right: 100px;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+    .home-contact-button:hover {
+        background-color: #BF9746;
+        color: #DBE5E3;
+        border-color: #BF9746;
+    }

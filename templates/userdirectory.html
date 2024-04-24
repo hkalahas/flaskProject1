@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Directory
+{% endblock %}
+
+{% block page_head %}
+    User Directory
+{% endblock %}
+
+{% block page_content %}
+    <div class="container text-center">
+            <div class="row">
+                <div class="col-md-10">
+                     <table>
+                        <tr>
+                            <td> <input type="text" id="directory-search-input" placeholder="Search" oninput=""> </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+    </div>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="image-preview">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/340px-Default_pfp.svg.png" alt="User Image" class="profile-image img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <section class="col-md-12">
+                        <h2>John Doe</h2>
+                        <ul>
+                            <li><strong>MemberID:</strong> 123456</li>
+                            <li><strong>Graduation Date:</strong> May 2023</li>
+                            <li><strong>Join Date:</strong> January 2021</li>
+                            <li><strong>Active Member Status:</strong> Not Active</li>
+                            <li><strong>User Category:</strong> Alumni </li>
+                        </ul>
+                    </section>
+                    <section class="col-md-4">
+                        <h2>Contact Info</h2>
+                        <ul>
+                            <li><strong>Phone:</strong> +1234567890</li>
+                            <li><strong>Email:</strong> john.doe@example.com</li>
+                            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/johndoe">https://www.linkedin.com/in/johndoe</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

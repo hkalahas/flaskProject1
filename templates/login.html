@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block page_title %}Login{% endblock %}
+
+{% block page_head %}Login{% endblock %}
+
+{% block page_content %}
+    <!-- Left side of screen -->
+    <div class="split left">
+            <!-- Login form begins -->
+        <div class="login-form">
+            <form class="row g-3" action="{{ url_for('login') }}" method="post">
+                <div class="content">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+                    </div>
+                    <div class="form-group">
+                        {% if redirect_route %}
+                            <input type="hidden" name="redirect_route" value="{{ redirect_route }}">
+                        {% endif %}
+                        <button type="submit" class="btn custom-button">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Right side of screen -->
+    <div class="split right">
+        <!--Robert H. Smith logo-->
+        <img class="smith_logo" src="https://dbknews.s3.amazonaws.com/uploads/2022/03/031422_3.16.22.smith_.school.program.removed_TM12.jpg" alt="Smith Logo">
+    </div>
+{% endblock %}

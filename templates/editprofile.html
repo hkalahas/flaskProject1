@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    {% if action == 'create' %}
+        Add New Member
+    {% elif action == 'update' %}
+        Update Profile
+    {% else %}
+        {% if current_user.role == 'BOARD' %}
+            My Profile
+        {% else %}
+            My Profile
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block page_head %}
+    {% if action == 'create' %}
+        Add New Member
+    {% elif action == 'update' %}
+        Update Profile
+    {% else %}
+        {% if current_user.role == 'BOARD' %}
+            View Profile
+        {% else %}
+            My Profile
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block page_content %}
+    <main>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="image-preview">
+                    <!--Image section-->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/340px-Default_pfp.svg.png" alt="User Image" class="profile-image img-fluid">
+                </div>
+                {% if action and action in ['create', 'update'] %}
+                <div class="image-upload">
+                    <input type="file" id="profile-image" class="button" accept="image/*">
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-md-5">
+                <div class="content">
+                    <section class="section">
+                        <!--Edit user information-->
+                        <h2>User Information</h2>
+                        <form>
+                            <div class="form-group row">
+                                <label for="name" class="col-sm-4 col-form-label">Name:</label>
+                                <div class="col-sm-8">
+                                    {%  if action and action in ['create', 'update'] %}
+                                        <input type="text" class="form-control" id="name" placeholder="Name" value="{{ member.name if member else '' }}">
+                                    {% else %}
+                                        {{ member.name if member else '' }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="grad_date" class="col-sm-4 col-form-label">Graduation Date:</label>
+                                <div class="col-sm-8">
+                                    {%  if action and action in ['create', 'update'] %}
+                                        <input type="text" class="form-control" id="grad_date" placeholder="Graduation Date" value="{{ member.grad_date }}">
+                                    {% else %}
+                                        {{ member.grad_date }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="join_date" class="col-sm-4 col-form-label">Join Date:</label>
+                                <div class="col-sm-8">
+                                    {%  if action and action in ['create', 'update'] %}
+                                        <input type="text" class="form-control" id="join_date" placeholder="Join Date" value="{{ member.join_date }}">
+                                    {% else %}
+                                        {{ member.join_date }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Member Status:</label>
+                                <div class="col-sm-8">
+                                    {% if action and action in ['view', 'update'] %}
+                                        <div>{{ member.mem_status }}</div>
+                                        <input type="hidden" name="mem_status" value="{{ member.mem_status }}">
+                                    {% else %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="mem_status" id="status1" value="active">
+                                            <label class="form-check-label" for="status1">Active Member</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="mem_status" id="status2" value="inactive">
+                                            <label class="form-check-label" for="status2">Not Active</label>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">User Category:</label>
+                                <div class="col-sm-8">
+                                    {% if action and action in ['view', 'update'] %}
+                                        <div>{{ member.mem_category }}</div>
+                                        <input type="hidden" name="mem_category" value="{{ member.mem_category }}">
+                                    {% else %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="mem_category" id="category1" value="member" {% if member.mem_category == 'member' or action == 'create' %} checked {% endif %}>
+                                            <label class="form-check-label" for="category1">Member</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="mem_category" id="category2" value="alumni" {% if member.mem_category == 'alumni' %} checked {% endif %}>
+                                            <label class="form-check-label" for="category2">Alumni</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="mem_category" id="category3" value="board" {% if member.mem_category == 'board' %} checked {% endif %}>
+                                            <label class="form-check-label" for="category3">Board</label>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                    <section class="section">
+                        <!--Edit contact information-->
+                        <h2>Contact Info</h2>
+                        <form>
+                            <div class="form-group row">
+                                <label for="mem_phone" class="col-sm-4 col-form-label">Phone:</label>
+                                <div class="col-sm-8">
+                                    {% if action and action in ['create', 'update'] %}
+                                    <input type="text" class="form-control" id="mem_phone" placeholder="Phone Number" name="mem_phone" value="{{ member.mem_phone }}">
+                                    {% else %}
+                                        {{ member.mem_phone }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-4 col-form-label">Email:</label>
+                                <div class="col-sm-8">
+                                    {%if action and action in ['create', 'update'] %}
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ member.email }}">
+                                    {% else %}
+                                        {{ member.email }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="mem_linkedin" class="col-sm-4 col-form-label">LinkedIn:</label>
+                                <div class="col-sm-8">
+                                    {%  if action and action in ['create', 'update'] %}
+                                    <input type="text" class="form-control" id="mem_linkedin" name="mem_linkedin" placeholder="LinkedIn" value="{{ member.mem_linkedin }}">
+                                    {% else %}
+                                        {{ member.mem_linkedin }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+
+                    <div class="col-md-12">
+                        {% if action and action=='view' %}
+                        <a href="/editprofile" class="btn btn-primary">Edit Profile</a>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-12 text-center">
+                        {% if action and action == 'create' %}
+                            <a href="/myprofile" class="btn btn-primary">Add Profile</a>
+                        {% elif action and action == 'update' %}
+                            <a href="/myprofile" class="btn btn-primary">Save Changes</a>
+                        {% endif %}
+                    </div>
+                    <!--Saves and updates changes-->
+                </div>
+            </div>
+            {% if action == 'view' %}
+                <div class="col-md-3">
+                    <!-- Links to other pages for easy access -->
+                    <h2> Quick Links</h2>
+                    <div class="links">
+                        <div><a href="/userdirectory" class="custom-button">Search for a Profile</a></div>
+                        <br>
+                        <div><a href="/upcomingevents" class="custom-button">View Upcoming Events</a></div>
+                        <br>
+                        <div><a href="/pitches" class="custom-button">View Pitches</a></div>
+                        <br>
+                        <div><a href="/requestpitch" class="custom-button">Request a Pitch</a></div>
+                        <br>
+                        <div><a href="/requestabsence" class="custom-button">Request a Meeting Absence</a></div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    </main>
+{% endblock %}
